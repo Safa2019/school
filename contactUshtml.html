@@ -1,79 +1,93 @@
  
-<!DOCTYPE html>
-<html>
-<head>
-<link rel="stylesheet" href="css/style.css">
+<!doctype html>
+<html  dir="rtl" lang="ar">
+   <head>  
+    <title>مدرسة الموهوبين  </title>
+        <meta charset="utf-8">
+	<meta name="keywords" content="مدرسة الموهوبين "  />
+	<meta name="description" content=" طالب , التسجيل في مدرسة "  />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+	
+		<!-- We must first load the JQuery after that form javascript to use ajax -->
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script src="js/form.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="css/login_form.css">
+		<link rel="stylesheet" href="fonts/fontawesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">		
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">		 
+      </head>
 
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {font-family: Arial, Helvetica, sans-serif; margin-top:5%;background-color:white;}
-* {box-sizing: border-box;
-    font-size: 17px;
-    line-height: 24px;
-	direction:rtl;}
-
-input[type=text], select, textarea {
-    width: 100%;
-    padding: 12px; 
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    margin-top: 6px;
-    margin-bottom: 16px;
-    resize: vertical;
-}
-
-</style>
-
-	 
-</head>
-
-  <header role="banner">
-	   <div class="top-bar" >
-						
-				<div class="menu">
-				<img src="images/llogo.png" width="6%" />
-				  <a href="index.html">الرئيسية</a>
-				  <a href="index.html#about">äÈÐÉ</a>
-				  <a href="index.html#level">ÇáãÑÇÍá ÇáÏÑÇÓíÉ</a>
-		          <a href="index.html#activty">ÇáÃäÔØÉ</a>
-				  <a href="contactUshtml.html">ÇÊÕá ÈäÇ</a>
-				</div>	
-	   </div> 	
-   </header> 
-   
-<body>	  
-
+	    <body>
+      <header>
+	    <div class="top-bar" >						
+		   <div class="menu">
+			<img src="images/llogo.png" width="6%" />
+			<a href="index.html">الرئيسية</a>
+			<a href="about.html">نبذة</a>
+			<a href="#level">المراحل الدراسية</a>
+			<a href="#activty">الأنشطة</a>
+			<a href="contactUshtml.html">اتصل بنا</a>
+			<button onclick="document.getElementById('id1').style.display='block'" type="button" class="btn btn-info" style="margin-right: 10%;">تسجيل الدخول</button>
+	       </div>
+	    </div> 	
+	   
+        <!--login form pop up--> 
+	    <div id="id1" class="login_containr">		 										
+		  <form class="center" action="#" id="login" method="post">
+            <span onclick="document.getElementById('id1').style.display='none'" class="sign_close" title="Close Modal">&times;</span>
+			<div class="container_field">
+			<!--user name field-->
+			<div class="borderFeild"> 
+			<i class="fa fa-user"></i>
+			<input  type="text" id="userlog" placeholder="  أدخل اسم المستخدم" name="user"  required="" oninvalid="this.setCustomValidity('الرجاء إدخال اسم المستخدم')"
+			oninput="setCustomValidity('')" >
+		    </div>
+         	<!--password field-->		
+			<div class="borderFeild"> 
+            <i class="fa fa-lock"></i>
+			<input type="password" id="passwordlog" placeholder="  أدخل كلمة المرور" name="password" required="" oninvalid="this.setCustomValidity('الرجاء إدخال كلمة المرور')"
+			oninput="setCustomValidity('')"> 
+			</div>
+            <!-- result of login proccess-->			
+			<div id="resultLogin"></div>
+			<!-- button for login --> 
+			<div class="clearfix"><button class="btn btn-info" type="submit" name="login_btn">تسجيل دخول</button></div>
+			<!-- label for remeber me -->
+			<label><input type="checkbox" checked="checked" name="remember"> تذكرني</label>
+			</div>
+            <!-- last part of contanir-->
+			<div class="container_field" ><span class="psw">نسيت <a href="#">كلمة المرور؟</a></span></div>
+		  </form>
+		</div> <!--close the div of login form-->		
+      </header> 
+	    
 
 <div class="container">
 
-<img id="contact_img" src="images/contact.png"/>
-<h2 id="p">ááÔßÇæì æ ÇáÇÞÊÑÇÍÇÊ </h2>
-
-  <form action="mailto">
-    <b><label for="fname">ÇáÇÓã:  </label></b>
-    <input type="text" id="fname" name="firstname" placeholder="ÇáÇÓã ÇáËáÇËí">
-
-    <b><label for="msgType">äæÚ ÇáÑÓÇáÉ: </label></b>
-    <select id="msgType" name="äæÚ ÇáÑÓÇáÉ">
-      <option value="suggestions">ÇÞÊÑÇÍ</option>
-      <option value="complain">Ôßæì</option>
-      
-    </select>
-
-    <b><label for="subject">ÇáãæÖæÚ:</label></b>
-    <textarea id="subject" name="subject" placeholder="ÇßÊÈ ÇáÔßæì Çæ ÇáÇÞÊÑÇÍ ... " style="height:200px"></textarea>
-
-    
-  </form>
-  <button class="open-button" >ÅÑÓÇá</button>
+	<img id="contact_img" src="images/contact.png"/>
+	<h2 id="p">للشكاوى والاقتراحات </h2>	
+	<form action="mailto">
+	    <b><label for="fname">الاسم:  </label></b>
+	    <input type="text" id="fname" name="firstname" placeholder="الاسم الثلاثي">
+	
+	    <b><label for="msgType">نوع الرسالة: </label></b>
+	    <select id="msgType" name="اقتراح">
+	      <option value="suggestions">اقتراح</option>
+	      <option value="complain">شكوى</option>
+	      
+	    </select>
+	
+	    <b><label for="subject">الموضوع:</label></b>
+	    <textarea id="subject" name="subject" placeholder="اكتب هنا... " style="height:200px"></textarea>  
+	</form>
+	<button class="open-button" >إرسال</button>
 
 </div>
 
 
 </body>
-
 <footer>
 <div class="row">      
 
@@ -86,23 +100,22 @@ input[type=text], select, textarea {
 	
   <div class="columnFooter">
     <div class="card">
-			 <a  href = "index.html" >ÇáÑÆíÓíÉ </a><br>
-			 <a href = "index.html#about" >äÈÐÉ  </a><br>
-			 <a href = "index.html#level" >ÇáãÑÇÍá ÇáÏÑÇÓíÉ </a><br>
-			 <a href = "index.html#activty"  >ÇáÇäÔØÉ </a><br>
-			 <a href = "contactUshtml.html"  >ÇÊÕá ÈäÇ </a><br>
+			 <a  href ="index.html">الرئيسية </a><br>
+			 <a href = "about.html" >نبذة  </a><br>
+			 <a href = "index.html#level" >المراحل الدراسية </a><br>
+			 <a href = "index.html#activty"  >الانشطة </a><br>
+			 <a href = "contactUshtml.html"  >اتصل بنا </a><br>
 		</div>
 	</div>
   <div class="columnFooter">
     <div class="card">
-	<h3 > ÊæÇÕá ãÚäÇ   </h3>			
+	<h3 > تواصل معنا   </h3>			
 			<img src= "images/twitter.png" style="width:35px;height:35px;" onclick="https://www.twitter.com"/>
             <img src= "images/facebook.png" style="width:35px;height:35px;" onclick="https://www.facebook.com" />
 			<a href="mailto:reem.s.aldosari@hotmail.com"><img src= "images/gmail.png" style="width:35px;height:35px" /></a>
 		</div>
 		</div>
 		</div>
-</footer>
-
+</footer>	 
 
 </html>
